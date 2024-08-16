@@ -1,66 +1,51 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+CV Formu Aplikācija
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Uzdevums
 
-## About Laravel
+Jums ir jāizveido web aplikācija, izmantojot Laravel, kas ļauj lietotājiem pildīt CV formas, pārskatīt esošos ierakstus un veikt labojumus.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Tehniskās Prasības
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Backend:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Izveidot Laravel projektu, kas nodrošina visas nepieciešamās funkcijas, lai apstrādātu CV formas ierakstus.
 
-## Learning Laravel
+Izmantot PostgreSQL datu bāzi, lai glabātu CV informāciju.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Izveidot skatus, kontrolierus un maršrutus, lai apstrādātu lietotāja darbības un pildītu CV formas.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+CV Formas Izveide un Rediģēšana:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Izveidot skatus, kas ļauj lietotājiem aizpildīt un rediģēt CV formas, ievadot savus personas datus, izglītību, darba pieredzi utt.
 
-## Laravel Sponsors
+Nodrošināt, ka dati tiek pareizi validēti un saglabāti datu bāzē.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+CV Pārskatīšana:
 
-### Premium Partners
+Izveidot skatus, lai lietotāji varētu pārskatīt savus iepriekš aizpildītos CV ierakstus.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Darbības
 
-## Contributing
+Datu Modeļi un Kontrolieri:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Izveidot datu modeļus un kontrolierus, lai apstrādātu CV formas ierakstus un veiktu datu validāciju.
 
-## Code of Conduct
+Skatu Izveide:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Izveidot skatus, lai ļautu lietotājiem pildīt CV formas un pārskatīt esošos ierakstus.
 
-## Security Vulnerabilities
+Datu Bāzes Konfigurācija:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Konfigurē PostgreSQL datu bāzi un atbilstoši to norādiet .env failā.
 
-## License
+Composer (Bonusa uzdevums):
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Izmantojot Composer, pārvaldīt visas PHP bibliotēkas un atkarības.
+
+Docker (Bonusa uzdevums):
+
+Izveido Docker konteinerus, lai nodrošinātu vieglu uzstādīšanu un pārnēsājamību.
+
+GitHub:
+
+Izveidot jaunu GitHub repozitoriju un augšupielādēt visu projektu. Atsūti saiti uz projektu, lai varam pārbaudīt nodevumu.
