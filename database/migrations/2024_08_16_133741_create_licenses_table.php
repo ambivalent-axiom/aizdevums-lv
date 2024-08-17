@@ -15,10 +15,10 @@ return new class extends Migration
         Schema::create('licenses', function (Blueprint $table) {
            $table->id();
            $table->foreignIdFor(CV::class, 'cv_id')->constrained('cv')->cascadeOnDelete();
-           $table->string('name');
-           $table->string('institution_name')->nullable();
-           $table->string('identification_number')->nullable();
-           $table->date('issue_date')->nullable();
+           $table->string('license_name');
+           $table->string('license_institution')->nullable();
+           $table->string('license_id')->nullable();
+           $table->date('license_issue_date')->nullable();
            $table->timestamps();
            $table->softDeletes();
         });

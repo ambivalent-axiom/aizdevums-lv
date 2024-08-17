@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(CV::class, 'cv_id')->constrained('cv')->cascadeOnDelete();
             $table->string('language_name');
-            $table->string('skill_level');
+            $table->string('language_level');
             $table->timestamps();
             $table->softDeletes();
         });

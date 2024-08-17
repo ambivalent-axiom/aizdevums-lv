@@ -15,8 +15,8 @@ return new class extends Migration
         Schema::create('educations', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(CV::class, 'cv_id')->constrained('cv')->cascadeOnDelete();
-            $table->string('level');
-            $table->string('institution');
+            $table->string('education_level');
+            $table->string('education_institution');
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();

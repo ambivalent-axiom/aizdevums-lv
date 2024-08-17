@@ -15,8 +15,8 @@ return new class extends Migration
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(CV::class, 'cv_id')->constrained('cv')->cascadeOnDelete();
-            $table->string('name');
-            $table->string('level');
+            $table->string('skill_name');
+            $table->string('skill_level');
             $table->timestamps();
             $table->softDeletes();
         });

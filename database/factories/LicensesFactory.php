@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\CV;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +16,20 @@ class LicensesFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition(
+        CV $cv = null,
+        string $licenseName = Null,
+        string $institution = Null,
+        string $licenseId = Null,
+        Carbon $issueDate = Null,
+    ): array
     {
         return [
-            //
+            'cv_id' => $cv->id ?? CV::factory()->create()->id,
+            'license_name' => $licenseName ?? $this->faker->text(20),
+            'institution' => $institution ?? $this->faker->company(),
+            'license_id' => $licenseId ?? $this->faker->uuid(),
+            'issue_date' => $issueDate ?? $this->faker->date(),
         ];
     }
 }

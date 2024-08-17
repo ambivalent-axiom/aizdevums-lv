@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +16,29 @@ class CVFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition(
+        User $user = null,
+        string $firstName = null,
+        string $lastName = null,
+        string $email = null,
+        string $phone = null,
+        Carbon $birthDate = null,
+        string $country = null,
+        string $city = null,
+        string $picture = null,
+
+    ): array
     {
         return [
-            //
+            'user_id' => $user->id ?? User::factory()->create()->id,
+            'firstName' => $firstName ?? $this->faker->firstName(),
+            'lastName' => $lastName ?? $this->faker->lastName(),
+            'email' => $email ?? $this->faker->unique()->safeEmail(),
+            'phone' => $phone ?? $this->faker->phoneNumber(),
+            'birthDate' => $birthDate ?? $this->faker->date(),
+            'country' => $country ?? $this->faker->country(),
+            'city' => $city ?? $this->faker->city(),
+            'picture' => $picture ?? $this->faker->imageUrl(),
         ];
     }
 }
