@@ -12,10 +12,11 @@ class License extends Model
     use HasFactory, softDeletes;
     protected $fillable =
         [
-            'name',
-            'institution_name',
-            'identification_number',
-            'issue_date',
+            'cv_id',
+            'license_name',
+            'license_institution',
+            'license_id',
+            'license_issue_date',
         ];
     public function cv(): BelongsTo
     {

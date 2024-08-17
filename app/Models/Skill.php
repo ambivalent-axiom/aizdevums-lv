@@ -12,8 +12,9 @@ class Skill extends Model
     use HasFactory, softDeletes;
     protected $fillable =
         [
-            'name',
-            'level'
+            'cv_id',
+            'skill_name',
+            'skill_level'
         ];
     public function cv(): BelongsTo
     {

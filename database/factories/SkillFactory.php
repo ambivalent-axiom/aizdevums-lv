@@ -9,7 +9,7 @@ use phpDocumentor\Reflection\Types\Integer;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class SkillsFactory extends Factory
+class SkillFactory extends Factory
 {
     /**
      * Define the model's default state.

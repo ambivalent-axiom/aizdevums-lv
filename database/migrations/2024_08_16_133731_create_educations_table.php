@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreignIdFor(CV::class, 'cv_id')->constrained('cv')->cascadeOnDelete();
             $table->string('education_level');
             $table->string('education_institution');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->date('education_start_date');
+            $table->date('education_end_date');
             $table->timestamps();
             $table->softDeletes();
         });

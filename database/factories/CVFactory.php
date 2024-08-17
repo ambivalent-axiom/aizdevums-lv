@@ -31,11 +31,11 @@ class CVFactory extends Factory
     {
         return [
             'user_id' => $user->id ?? User::factory()->create()->id,
-            'firstName' => $firstName ?? $this->faker->firstName(),
-            'lastName' => $lastName ?? $this->faker->lastName(),
+            'first_name' => $firstName ?? $this->faker->firstName(),
+            'last_name' => $lastName ?? $this->faker->lastName(),
             'email' => $email ?? $this->faker->unique()->safeEmail(),
-            'phone' => $phone ?? $this->faker->phoneNumber(),
-            'birthDate' => $birthDate ?? $this->faker->date(),
+            'phone' => $phone ?? $this->faker->numberBetween(10000000, 999999999),
+            'birth_date' => $birthDate ?? $this->faker->date(),
             'country' => $country ?? $this->faker->country(),
             'city' => $city ?? $this->faker->city(),
             'picture' => $picture ?? $this->faker->imageUrl(),

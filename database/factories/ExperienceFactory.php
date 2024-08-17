@@ -27,11 +27,11 @@ class ExperienceFactory extends Factory
     {
         return [
             'cv_id' => $cv->id ?? CV::factory()->create()->id,
-            'company' => $company ?? $this->faker->company,
-            'position' => $position ?? $this->faker->jobTitle,
-            'business_type' => $businessType ?? $this->faker->randomElement(['IT', 'Construction', 'Retail', 'Fintech']),
-            'start_date' => $startDate ?? $this->faker->date(),
-            'end_date' => $endDate ?? $this->faker->date(),
+            'experience_company' => $company ?? $this->faker->company,
+            'experience_position' => $position ?? $this->faker->jobTitle,
+            'experience_business_type' => $businessType ?? $this->faker->randomElement(['IT', 'Construction', 'Retail', 'Fintech']),
+            'experience_start_date' => $startDate ?? $this->faker->date(),
+            'experience_end_date' => $endDate ?? $this->faker->date(),
         ];
     }
 }

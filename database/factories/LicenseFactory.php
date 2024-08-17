@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\License>
  */
-class LicensesFactory extends Factory
+class LicenseFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -27,9 +27,9 @@ class LicensesFactory extends Factory
         return [
             'cv_id' => $cv->id ?? CV::factory()->create()->id,
             'license_name' => $licenseName ?? $this->faker->text(20),
-            'institution' => $institution ?? $this->faker->company(),
+            'license_institution' => $institution ?? $this->faker->company(),
             'license_id' => $licenseId ?? $this->faker->uuid(),
-            'issue_date' => $issueDate ?? $this->faker->date(),
+            'license_issue_date' => $issueDate ?? $this->faker->date(),
         ];
     }
 }

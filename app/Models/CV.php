@@ -7,17 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use mysql_xdevapi\Table;
 
 class CV extends Model
 {
     use HasFactory, softDeletes;
     protected $fillable =
         [
+            'user_id',
             'first_name',
             'last_name',
             'email',
             'phone',
-            'bith_date',
+            'birth_date',
             'country',
             'city',
             'picture'
@@ -29,6 +31,7 @@ class CV extends Model
         'languages',
         'skills'
     ];
+    protected $table = 'cv';
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

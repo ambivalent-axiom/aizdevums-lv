@@ -15,11 +15,11 @@ return new class extends Migration
         Schema::create('experiences', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(CV::class, 'cv_id')->constrained('cv')->cascadeOnDelete();
-            $table->string('company');
-            $table->string('position');
-            $table->string('business_type');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->string('experience_company');
+            $table->string('experience_position');
+            $table->string('experience_business_type');
+            $table->date('experience_start_date');
+            $table->date('experience_end_date');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -29,8 +29,8 @@ class EducationFactory extends Factory
             'cv_id' => $cv->id ?? CV::factory()->create()->id,
             'education_level' => $educationLevel ?? $this->faker->randomElement(['High School', 'Bachelor', 'Master', 'Doctorate']),
             'education_institution' => $institutionName ?? $this->faker->company,
-            'start_date' => $startDate ?? $this->faker->date(),
-            'end_date' => $endDate ?? $this->faker->date(),
+            'education_start_date' => $startDate ?? $this->faker->date(),
+            'education_end_date' => $endDate ?? $this->faker->date(),
         ];
     }
 }

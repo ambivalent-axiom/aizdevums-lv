@@ -9,7 +9,7 @@ use phpDocumentor\Reflection\Types\Integer;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Language>
  */
-class LanguagesFactory extends Factory
+class LanguageFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -24,8 +24,8 @@ class LanguagesFactory extends Factory
     {
         return [
             'cv_id' => $cv->id ?? CV::factory()->create()->id,
-            'language' => $language ?? $this->faker->languageCode(),
-            'level' => $level ?? $this->faker->numberBetween(1, 5),
+            'language_name' => $language ?? $this->faker->languageCode(),
+            'language_level' => $level ?? $this->faker->numberBetween(1, 5),
         ];
     }
 }

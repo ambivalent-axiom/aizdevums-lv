@@ -13,11 +13,13 @@ class Education extends Model
 
     protected $fillable =
         [
-            'level',
-            'institution',
-            'start_date',
-            'end_date'
+            'cv_id',
+            'education_level',
+            'education_institution',
+            'education_start_date',
+            'education_end_date'
         ];
+    protected $table = 'educations';
     public function cv(): BelongsTo
     {
         return $this->belongsTo(Cv::class, 'id', 'cv_id');

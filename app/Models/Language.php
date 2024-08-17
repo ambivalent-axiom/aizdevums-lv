@@ -12,8 +12,9 @@ class Language extends Model
     use HasFactory, softDeletes;
     protected $fillable =
         [
+            'cv_id',
             'language_name',
-            'skill_level'
+            'language_level'
         ];
     public function cv(): BelongsTo
     {
