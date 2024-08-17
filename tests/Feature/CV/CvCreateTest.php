@@ -6,7 +6,8 @@ use Illuminate\Http\UploadedFile;
 it('should return 200 for create view', function () {
     $user = User::factory()->create();
     $response = $this->actingAs($user)
-        ->get(route('cv.create'));
+        ->get('/cv/create');
+    $response->assertViewIs('cv.add');
     $response->assertStatus(200);
 });
 it('should return 302 for unauthorized access of create view', function () {

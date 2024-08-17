@@ -11,12 +11,11 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
-
 class CvCreateController extends Controller
 {
     public function create(): View
     {
-        return view('cv.create');
+        return view('cv/add');
     }
     public function store(CvCreateUpdateRequest $request): RedirectResponse
     {

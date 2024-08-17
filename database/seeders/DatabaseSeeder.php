@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\CV;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +15,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $user = User::factory()->create([
+            'first_name' => 'Artūrs',
+            'last_name' => 'Melnis',
+            'email' => 'artmelnis@gmail.com',
+            'password' => Hash::make('qwerty123'),
         ]);
+        CV::factory(20)->create([
+            'user_id' => $user->id,
+        ]);
+
+
+
     }
 }

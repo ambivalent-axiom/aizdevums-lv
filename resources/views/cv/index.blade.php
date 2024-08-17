@@ -11,6 +11,11 @@
                 <div class="p-6 text-gray-900">
                     {{ __("You're in CV view!") }}
                 </div>
+                <div>
+                    @foreach($cvs as $cv)
+                        {{ $cv }}
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

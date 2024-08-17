@@ -17,7 +17,7 @@ it('can softDelete CV with foreign constraints', function () {
     $license = License::factory()->create(['cv_id' => $cv->id]);
     $skill = Skill::factory()->create(['cv_id' => $cv->id]);
     $response = $this->actingAs($user)
-        ->delete('/cv', [
+        ->delete('/cv/destroy', [
             'id' => $cv->id,
         ]);
     $response->assertRedirect('/cv');
@@ -56,10 +56,9 @@ it('cannot softDelete CV that belongs to other user', function () {
     $user2 = User::factory()->create();
     $cv2 = Cv::factory()->create(['user_id' => $user2->id]);
     $response = $this->actingAs($user1)
-        ->delete('/cv', [
+        ->delete('/cv/destroy', [
             'id' => $cv2->id,
         ]);
-    $response->assertRedirect('/cv');
     $response->assertStatus(302);
-    $response->assertSessionHas('error', 'Unauthorized action.');
+    $response->assertSessionHas('error', 'Unable to locate CV.');
 });

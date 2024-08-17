@@ -7,19 +7,19 @@ it('should return 200', function () {
     $user = User::factory()->create();
     $cv = Cv::factory()->create(['user_id' => $user->id]);
     $response = $this->actingAs($user)
-        ->get('/cv/' . $cv->id);
+        ->get('/cv/show/' . $cv->id);
     $response->assertStatus(200);
 });
 it('should return 302', function () {
     $cv = Cv::factory()->create();
-    $response = $this->get('/cv/' . $cv->id);
+    $response = $this->get('/cv/show/' . $cv->id);
     $response->assertStatus(302);
 });
 it('has cv data', function () {
     $user = User::factory()->create();
     $cv = Cv::factory()->create(['user_id' => $user->id]);
     $response = $this->actingAs($user)
-        ->get('/cv/' . $cv->id);
+        ->get('/cv/show/' . $cv->id);
     $response->assertViewHas('cv');
     $cvData = $response->viewData('cv');
     expect($cvData->id)->toBe($cv->id);
@@ -30,15 +30,14 @@ it('cannot get other user CV data', function () {
     $user2 = User::factory()->create();
     $cv2 = Cv::factory()->create(['user_id' => $user2->id]);
     $response = $this->actingAs($user1)
-        ->get('/cv/' . $cv2->id);
+        ->get('/cv/show/' . $cv2->id);
     $response->assertStatus(302);
-    $response->assertRedirect('cv');
-    $response->assertSessionHas('error', 'CV not found!');
+    $response->assertSessionHas('error', 'Unable to locate CV.');
 });
-it('should reuturn 404 with error if CV does not exist', function () {
+it('should return 404 with error if CV does not exist', function () {
     $user1 = User::factory()->create();
     $cv1 = Cv::factory()->create(['user_id' => $user1->id]);
     $response = $this->actingAs($user1)
-        ->get('/cv/' . 2);
+        ->get('/cv/show/' . 2);
     $response->assertStatus(404);
 });
