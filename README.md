@@ -1,51 +1,49 @@
-CV Formu Aplikācija
+<h1 align="center">Aizdevums.lv assigment</h1>
 
-Uzdevums
+<h2 align="center">Description</h2>
 
-Jums ir jāizveido web aplikācija, izmantojot Laravel, kas ļauj lietotājiem pildīt CV formas, pārskatīt esošos ierakstus un veikt labojumus.
+<p align="center">
+This is a web App that uses Laravel 11, Tailwind CSS, Blade and Javascript. It allows basic authentication, user creation, update and deletion as well as recover their passwords. Only registered and authenticated users are able to manage their assets. App features CRUD functionality for managing CV's. 
+Each user can create, update or delete CV's.
+Each user can access only their CV's data.
+</p>
 
-Tehniskās Prasības
+<img src="readme/cv.gif">
 
-Backend:
+<h2 align="center">Requirements</h2>
+<p>PHP > 8.2</p>
+<p>Composer > v2.7.7</p>
+<p>Node.js > v22.4.1</p>
+<p>Docker</p>
 
-Izveidot Laravel projektu, kas nodrošina visas nepieciešamās funkcijas, lai apstrādātu CV formas ierakstus.
+<h2 align="center">Setup</h2>
 
-Izmantot PostgreSQL datu bāzi, lai glabātu CV informāciju.
+- ```git clone https://github.com/ambivalent-axiom/aizdevums-lv.git``` Clone the Repository
+- Set Up Environment File: update .env.example and store as .env | set postgresql for docker or sqlite for local development environment
+- ```composer install``` Install PHP Dependencies
+- ```php artisan key:generate``` Generate Application Key
+- ```php artisan migrate``` Launch migration to create schemas
+- ```npm install``` Install Frontend Dependencies
+- ```npm run build``` Build Frontend
 
-Izveidot skatus, kontrolierus un maršrutus, lai apstrādātu lietotāja darbības un pildītu CV formas.
+<h2 align="center">Run with Docker</h2>
+Docker Setup (Using Laravel Sail)
 
-CV Formas Izveide un Rediģēšana:
+- ```./vendor/bin/sail up``` Start up the container
+- ```./vendor/bin/sail npm run dev``` Start up Vite environment
+- ```./vendor/bin/sail artisan migrate``` Launch migration to create schemas
+- Open ```localhost``` in web browser.
 
-Izveidot skatus, kas ļauj lietotājiem aizpildīt un rediģēt CV formas, ievadot savus personas datus, izglītību, darba pieredzi utt.
+<h2 align="center">Commands</h2>
 
-Nodrošināt, ka dati tiek pareizi validēti un saglabāti datu bāzē.
+- ```./vendor/bin/sail artisan db:seed``` Populate database with some example data<br>
 
-CV Pārskatīšana:
+<h2 align="center">Tests</h2>
 
-Izveidot skatus, lai lietotāji varētu pārskatīt savus iepriekš aizpildītos CV ierakstus.
+Automated testing is done by using Pest. Run all feature tests with command:
+- ```./vendor/bin/pest```
 
-Darbības
 
-Datu Modeļi un Kontrolieri:
-
-Izveidot datu modeļus un kontrolierus, lai apstrādātu CV formas ierakstus un veiktu datu validāciju.
-
-Skatu Izveide:
-
-Izveidot skatus, lai ļautu lietotājiem pildīt CV formas un pārskatīt esošos ierakstus.
-
-Datu Bāzes Konfigurācija:
-
-Konfigurē PostgreSQL datu bāzi un atbilstoši to norādiet .env failā.
-
-Composer (Bonusa uzdevums):
-
-Izmantojot Composer, pārvaldīt visas PHP bibliotēkas un atkarības.
-
-Docker (Bonusa uzdevums):
-
-Izveido Docker konteinerus, lai nodrošinātu vieglu uzstādīšanu un pārnēsājamību.
-
-GitHub:
-
-Izveidot jaunu GitHub repozitoriju un augšupielādēt visu projektu. Atsūti saiti uz projektu, lai varam pārbaudīt nodevumu.
+<h2 align="center">Contact</h2>
+If you have any questions or feedback, feel free to reach out:<br>
+Email: artmelnis@gmail.com
