@@ -3,6 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\CV;
+use App\Models\Education;
+use App\Models\Experience;
+use App\Models\Language;
+use App\Models\License;
+use App\Models\Skill;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -21,9 +26,29 @@ class DatabaseSeeder extends Seeder
             'email' => 'artmelnis@gmail.com',
             'password' => Hash::make('qwerty123'),
         ]);
-        CV::factory(20)->create([
+        $cvs = CV::factory(15)->create([
             'user_id' => $user->id,
         ]);
+
+        $cvs->each(function ($cv) {
+            Education::factory(2)->create([
+                'cv_id' => $cv->id,
+            ]);
+            Experience::factory(3)->create([
+                'cv_id' => $cv->id,
+            ]);
+            Language::factory(2)->create([
+                'cv_id' => $cv->id,
+            ]);
+            License::factory(2)->create([
+                'cv_id' => $cv->id,
+            ]);
+            Skill::factory(2)->create([
+                'cv_id' => $cv->id,
+            ]);
+        });
+
+
 
 
 

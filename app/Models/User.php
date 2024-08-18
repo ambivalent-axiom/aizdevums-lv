@@ -48,6 +48,6 @@ class User extends Authenticatable
     }
     public function cvs(): hasMany
     {
-        return $this->hasMany(Cv::class, 'user_id', 'id');
+        return $this->hasMany(CV::class, 'user_id', 'id');
     }
 }

@@ -13,7 +13,7 @@ class CvIndexShowController extends Controller
     {
         $cvs = CV::where('user_id', Auth::id())
             ->orderBy('created_at', 'desc')
-            ->paginate(10);
+            ->paginate(3);
         return view('cv.index', [
             'cvs' => $cvs
         ]);
