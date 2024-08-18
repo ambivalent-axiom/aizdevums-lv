@@ -13,6 +13,7 @@ use Illuminate\View\View;
 
 class CvCreateController extends Controller
 {
+
     public function create(): View
     {
         return view('cv/add');
@@ -45,12 +46,21 @@ class CvCreateController extends Controller
             'picture' => $validated['picture'],
         ]);
 
-        $cv->educations()->createMany($validated['educations']);
-        $cv->experiences()->createMany($validated['experiences']);
-        $cv->languages()->createMany($validated['languages']);
-        $cv->licenses()->createMany($validated['licenses']);
-        $cv->skills()->createMany($validated['skills']);
-
+        if(isset($validated['educations'])) {
+            $cv->educations()->createMany($validated['educations']);
+        }
+        if(isset($validated['experiences'])) {
+            $cv->experiences()->createMany($validated['experiences']);
+        }
+        if(isset($validated['skills'])) {
+            $cv->skills()->createMany($validated['skills']);
+        }
+        if(isset($validated['languages'])) {
+            $cv->languages()->createMany($validated['languages']);
+        }
+        if(isset($validated['licenses'])) {
+            $cv->licenses()->createMany($validated['licenses']);
+        }
         return redirect('cv')->with('success', 'CV record created!');
     }
 }

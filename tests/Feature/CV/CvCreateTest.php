@@ -14,6 +14,62 @@ it('should return 302 for unauthorized access of create view', function () {
     $response = $this->get('/cv/create');
     $response->assertStatus(302);
 });
+it('should be able to create a CV record without child info', function () {
+    $user = User::factory()->create();
+    $response = $this->actingAs($user)
+        ->post('/cv/create', [
+            'phone' => 20178002,
+            'birth_date' => '1985-04-12',
+            'country' => 'Latvia',
+            'city' => 'Riga',
+            'picture' => UploadedFile::fake()
+                ->image('avatar.jpg')
+                ->size(2000),
+        ]);
+    $response->assertStatus(302);
+    $response->assertSessionHas('success', 'CV record created!');
+    $response->assertRedirect('/cv');
+    $this->assertDatabaseHas('cv', [
+        'user_id' => $user->id,
+    ]);
+    $this->assertDatabaseCount('educations', 0);
+    $this->assertDatabaseCount('experiences', 0);
+    $this->assertDatabaseCount('languages', 0);
+    $this->assertDatabaseCount('licenses', 0);
+    $this->assertDatabaseCount('skills', 0);
+});
+it('should be able to create a CV record with incomplete child info', function () {
+    $user = User::factory()->create();
+    $response = $this->actingAs($user)
+        ->post('/cv/create', [
+            'phone' => 20178002,
+            'birth_date' => '1985-04-12',
+            'country' => 'Latvia',
+            'city' => 'Riga',
+            'picture' => UploadedFile::fake()
+                ->image('avatar.jpg')
+                ->size(2000),
+            'educations' => [
+                [
+                    'education_level' => 'Bachelor',
+                    'education_institution' => 'University of Latvia',
+                    'education_start_date' => '2017-01-01',
+                    'education_end_date' => '2017-12-31',
+                ]
+            ]
+        ]);
+    $response->assertStatus(302);
+    $response->assertSessionHas('success', 'CV record created!');
+    $response->assertRedirect('/cv');
+    $this->assertDatabaseHas('cv', [
+        'user_id' => $user->id,
+    ]);
+    $this->assertDatabaseCount('educations', 1);
+    $this->assertDatabaseCount('experiences', 0);
+    $this->assertDatabaseCount('languages', 0);
+    $this->assertDatabaseCount('licenses', 0);
+    $this->assertDatabaseCount('skills', 0);
+});
 it('should be able to create a CV record', function () {
     $user = User::factory()->create();
     $response = $this->actingAs($user)
