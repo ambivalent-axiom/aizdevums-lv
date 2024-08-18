@@ -1,4 +1,4 @@
-<h1 align="center">Aizdevums.lv assigment</h1>
+<h1 align="center">Aizdevums.lv assignment</h1>
 
 <h2 align="center">Description</h2>
 
