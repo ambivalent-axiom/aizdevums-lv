@@ -44,39 +44,25 @@
                                     <p class="text-gray-600">Phone: {{ $cv->phone }}</p>
                                     <p class="text-gray-600">Address: {{ $cv->city }}, {{ $cv->country }}</p>
                                 </div>
-
-
                                 <div>
                                     <div class="ml-6">
-                                        <!-- Education -->
                                         @if($cv->educations->isNotEmpty())
                                             <p>Educations: {{ count($cv->educations) }}</p>
                                         @endif
-
-                                        <!-- Experience -->
                                         @if($cv->experiences->isNotEmpty())
                                             <p>Job Experiences: {{ count($cv->experiences) }}</p>
-
                                         @endif
-
-                                        <!-- Languages -->
                                         @if($cv->languages->isNotEmpty())
                                             <p>Languages: {{ count($cv->languages) }}</p>
                                         @endif
-
-                                        <!-- Skills -->
                                         @if($cv->skills->isNotEmpty())
                                             <p>Skills: {{ count($cv->skills) }}</p>
                                         @endif
-
-                                        <!-- Licenses -->
                                         @if($cv->licenses->isNotEmpty())
                                             <p>Licenses: {{ count($cv->licenses) }}</p>
                                         @endif
                                     </div>
                                 </div>
-
-
                                 <div class="flex">
                                     <div class="">
                                         <a href="cv/show/{{ $cv->id }}">

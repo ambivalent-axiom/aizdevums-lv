@@ -21,6 +21,7 @@ return new class extends Migration
            $table->date('license_issue_date')->nullable();
            $table->timestamps();
            $table->softDeletes();
+           $table->unique(['cv_id', 'id']);
         });
     }
 

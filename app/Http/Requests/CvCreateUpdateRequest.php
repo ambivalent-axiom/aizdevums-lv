@@ -22,6 +22,7 @@ class CvCreateUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
+        //TODO add conditional validation for cases if components are not added
         $rules = [
             'id' => ['nullable'],
             'phone' => ['required', 'numeric', 'digits_between:8,14'],
@@ -29,21 +30,26 @@ class CvCreateUpdateRequest extends FormRequest
             'country' => ['required', 'string'],
             'city' => ['required', 'string'],
             'picture' => ['nullable'],
+            'educations.*.educations_id' => ['nullable', 'numeric'],
             'educations.*.education_level' => ['nullable', 'string'],
             'educations.*.education_institution' => ['nullable', 'string'],
             'educations.*.education_start_date' => ['nullable', 'date'],
             'educations.*.education_end_date' => ['nullable', 'date'],
+            'experiences.*.experiences_id' => ['nullable', 'numeric'],
             'experiences.*.experience_company' => ['nullable', 'string'],
             'experiences.*.experience_position' => ['nullable', 'string'],
             'experiences.*.experience_business_type' => ['nullable', 'string'],
             'experiences.*.experience_start_date' => ['nullable', 'date'],
             'experiences.*.experience_end_date' => ['nullable', 'date'],
+            'languages.*.languages_id' => ['nullable', 'numeric'],
             'languages.*.language_name' => ['nullable', 'string'],
             'languages.*.language_level' => ['nullable', 'numeric'],
+            'licenses.*.licenses_id' => ['nullable', 'numeric'],
             'licenses.*.license_name' => ['nullable', 'string'],
             'licenses.*.license_institution' => ['nullable', 'string'],
             'licenses.*.license_id' => ['nullable', 'string'],
             'licenses.*.license_issue_date' => ['nullable', 'date', 'before:today'],
+            'skills.*.skills_id' => ['nullable', 'numeric'],
             'skills.*.skill_name' => ['nullable', 'string'],
             'skills.*.skill_level' => ['nullable', 'numeric'],
         ];

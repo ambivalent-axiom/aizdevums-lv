@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'artmelnis@gmail.com',
             'password' => Hash::make('qwerty123'),
         ]);
-        $cvs = CV::factory(15)->create([
+        $cvs = CV::factory(1)->create([
             'user_id' => $user->id,
         ]);
 

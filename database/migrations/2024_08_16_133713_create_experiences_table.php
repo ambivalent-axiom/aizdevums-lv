@@ -19,9 +19,10 @@ return new class extends Migration
             $table->string('experience_position');
             $table->string('experience_business_type');
             $table->date('experience_start_date');
-            $table->date('experience_end_date');
+            $table->date('experience_end_date')->nullable();
             $table->timestamps();
             $table->softDeletes();
+            $table->unique(['cv_id', 'id']);
         });
     }
 

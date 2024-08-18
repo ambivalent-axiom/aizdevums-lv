@@ -37,7 +37,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/cv/update/{cv}','update')
             ->name('cv.update')
             ->middleware(UserOwnsCv::class);
-        Route::patch('/cv/update','patch')
+        Route::patch('/cv/update/{cv}','patch')
             ->name('cv.patch')
             ->middleware(UserOwnsCv::class);
     });

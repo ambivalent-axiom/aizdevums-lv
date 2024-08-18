@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('language_level');
             $table->timestamps();
             $table->softDeletes();
+            $table->unique(['cv_id', 'id']);
         });
     }
 

@@ -22,14 +22,9 @@ class CvUpdateController extends Controller
     public function patch(CvCreateUpdateRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        if ($validated['picture'] instanceof UploadedFile) {
+        if (isset($validated['picture']) && $validated['picture'] instanceof UploadedFile) {
             $request->validate(
                 ['picture' => ['nullable', 'file', 'image', 'mimes:jpeg,png,jpg', 'max:2048']]
-            );
-        }
-        if (is_string($validated['picture'])) {
-            $request->validate(
-                ['picture' => ['nullable', 'string']]
             );
         }
         if ($request->hasFile('picture')) {
@@ -39,6 +34,11 @@ class CvUpdateController extends Controller
 
         $cv = CV::find($validated['id']);
         $user = User::find(Auth::id());
+
+        if ( ! isset($validated['picture']) && $cv->picture)
+        {
+            $validated['picture'] = $cv->picture;
+        }
 
         if ($cv->user_id != Auth::id()) {
             return redirect('cv')->with('error', 'CV not found!');
@@ -52,26 +52,65 @@ class CvUpdateController extends Controller
             'birth_date' => $validated['birth_date'],
             'country' => $validated['country'],
             'city' => $validated['city'],
-            'picture' => $validated['picture']
+            'picture' => $validated['picture'] ?? null
         ]);
 
-        $this->updateOrCreateRelatedRecords($cv, 'educations', $validated['educations']);
-        $this->updateOrCreateRelatedRecords($cv, 'experiences', $validated['experiences']);
-        $this->updateOrCreateRelatedRecords($cv, 'languages', $validated['languages']);
-        $this->updateOrCreateRelatedRecords($cv, 'licenses', $validated['licenses']);
-        $this->updateOrCreateRelatedRecords($cv, 'skills', $validated['skills']);
-
+        if(isset($validated['educations']))
+        {
+            $this->deleteRemovedRelatedRecords($cv, 'educations', $validated['educations']);
+            $this->updateOrCreateRelatedRecords($cv, 'education', $validated['educations']);
+        }
+        if(isset($validated['experiences']))
+        {
+            $this->deleteRemovedRelatedRecords($cv, 'experiences', $validated['experiences']);
+            $this->updateOrCreateRelatedRecords($cv, 'experience', $validated['experiences']);
+        }
+        if(isset($validated['skills']))
+        {
+            $this->deleteRemovedRelatedRecords($cv, 'skills', $validated['skills']);
+            $this->updateOrCreateRelatedRecords($cv, 'skill', $validated['skills']);
+        }
+        if(isset($validated['languages']))
+        {
+            $this->deleteRemovedRelatedRecords($cv, 'languages', $validated['languages']);
+            $this->updateOrCreateRelatedRecords($cv, 'language', $validated['languages']);
+        }
+        if(isset($validated['licenses']))
+        {
+            $this->deleteRemovedRelatedRecords($cv, 'licenses', $validated['licenses']);
+            $this->updateOrCreateRelatedRecords($cv, 'license', $validated['licenses']);
+        }
         return redirect('cv')->with('success', 'CV record updated!');
     }
 
-    private function updateOrCreateRelatedRecords($cv, $relation, $data): void
+    private function updateOrCreateRelatedRecords(CV $cv, string $relation, array $data): void
     {
         foreach ($data as $item) {
-            $modelClass = 'App\\Models\\' . ucfirst(rtrim($relation, 's'));
+            $modelClass = 'App\\Models\\' . ucfirst($relation);
             $modelClass::updateOrCreate(
-                ['cv_id' => $cv->id, 'id' => $item['id'] ?? null],
+                [
+                    'cv_id' => $cv->id,
+                    'id' => $item[$relation . 's_id'] ?? null,
+                ],
                 $item
             );
+        }
+    }
+    private function deleteRemovedRelatedRecords(CV $cv, string $relation, array $data,): void
+    {
+
+        $ids = [];
+        $collection = $cv->{$relation};
+        foreach ($data as $item) {
+            if (isset($item[$relation . '_id']))
+            {
+                $ids[] = $item[$relation . '_id'];
+            }
+        }
+        foreach ($collection as $item) {
+            if ( ! in_array($item->id, $ids)) {
+                $item->delete();
+            }
         }
     }
 }

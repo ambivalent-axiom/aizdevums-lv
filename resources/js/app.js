@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    //ADREM LANGUAGE BLOCK
+    //ADREM SKILL BLOCK
     if (skillsSection) {
         document.getElementById('add-skill').addEventListener('click', function(e) {
             e.preventDefault();

@@ -18,9 +18,10 @@ return new class extends Migration
             $table->string('education_level');
             $table->string('education_institution');
             $table->date('education_start_date');
-            $table->date('education_end_date');
+            $table->date('education_end_date')->nullable();
             $table->timestamps();
             $table->softDeletes();
+            $table->unique(['cv_id', 'id']);
         });
     }
 
