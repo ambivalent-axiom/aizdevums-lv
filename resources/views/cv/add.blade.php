@@ -24,7 +24,7 @@
                                         name="first_name"
                                         label="First Name"
                                         type="text"
-                                        value="{{ Auth::user()->first_name }}"
+                                        value="{{ old('first_name', Auth::user()->first_name) }}"
                                         required />
                                     <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
                                 </div>
@@ -34,7 +34,7 @@
                                         name="last_name"
                                         label="Last Name"
                                         type="text"
-                                        value="{{ Auth::user()->last_name }}"
+                                        value="{{ old('last_name', Auth::user()->last_name) }}"
                                         required />
                                     <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
                                 </div>
@@ -43,7 +43,7 @@
                                     <x-text-input
                                         name="email"
                                         label="Email"
-                                        value="{{ Auth::user()->email }}"
+                                        value="{{ old('email', Auth::user()->email) }}"
                                         type="email"
                                         required />
                                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
@@ -54,22 +54,36 @@
                                         name="phone"
                                         label="Phone"
                                         type="text"
+                                        value="{{ old('phone') }}"
                                         required />
                                     <x-input-error :messages="$errors->get('phone')" class="mt-2" />
                                 </div>
                                 <div>
                                     <x-input-label>Country</x-input-label>
-                                    <x-text-input name="country" label="Country" required />
+                                    <x-text-input
+                                        name="country"
+                                        label="Country"
+                                        value="{{ old('country') }}"
+                                        required />
                                     <x-input-error :messages="$errors->get('country')" class="mt-2" />
                                 </div>
                                 <div>
                                     <x-input-label>City</x-input-label>
-                                    <x-text-input name="city" label="City" required />
+                                    <x-text-input
+                                        name="city"
+                                        label="City"
+                                        value="{{ old('city') }}"
+                                        required />
                                     <x-input-error :messages="$errors->get('city')" class="mt-2" />
                                 </div>
                                 <div>
                                     <x-input-label>Birth Date</x-input-label>
-                                    <x-text-input name="birth_date" label="Birth Date" type="date" required />
+                                    <x-text-input
+                                        name="birth_date"
+                                        label="Birth Date"
+                                        value="{{ old('birth_date') }}"
+                                        type="date"
+                                        required />
                                     <x-input-error :messages="$errors->get('birth_date')" class="mt-2" />
                                 </div>
                                 <div>
@@ -124,4 +138,3 @@
         </div>
     </div>
 </x-app-layout>
-

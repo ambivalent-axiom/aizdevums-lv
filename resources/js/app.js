@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const licensesSection = document.getElementById('licenses-section');
     const skillsSection = document.getElementById('skills-section');
 
+
     //ADREM EXPERIENCE BLOCK
     if (experiencesSection) {
         document.getElementById('add-experience').addEventListener('click', function(e) {
@@ -19,42 +20,63 @@ document.addEventListener('DOMContentLoaded', function() {
             const newExperiencesGroup = document.createElement('div');
             newExperiencesGroup.classList.add('experiences-group', 'mb-4');
             newExperiencesGroup.innerHTML = `
-            <div class="p-6 border border-gray-200 rounded-lg bg-gray-50">
-                <div class="mb-4">
-                    <label
-                        for="experience_company_${experienceCount}"
-                        class="block text-sm font-medium text-gray-700">Company</label>
-                    <input
-                        type="text"
-                        name="experiences[${experienceCount}][experience_company]"
-                        id="experience_company_${experienceCount}"
-                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                        required
-                        >
-                </div>
-                <div class="mb-4">
-                    <label for="experience_position_${experienceCount}" class="block text-sm font-medium text-gray-700">Position</label>
-                    <input type="text" name="experiences[${experienceCount}][experience_position]" id="experience_position_${experienceCount}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
-                </div>
-                <div class="mb-4">
-                    <label for="experience_business_type_${experienceCount}" class="block text-sm font-medium text-gray-700">Business Type</label>
-                    <input type="text" name="experiences[${experienceCount}][experience_business_type]" id="experience_business_type_${experienceCount}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                </div>
-                <div class="mb-4">
-                    <label for="experience_start_date_${experienceCount}" class="block text-sm font-medium text-gray-700">Start Date</label>
-                    <input type="date" name="experiences[${experienceCount}][experience_start_date]" id="experience_start_date_${experienceCount}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
-                </div>
-                <div class="mb-4">
-                    <label for="experience_end_date_${experienceCount}" class="block text-sm font-medium text-gray-700">End Date</label>
-                    <input type="date" name="experiences[${experienceCount}][experience_end_date]" id="experience_end_date_${experienceCount}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                </div>
-                <button
-                    type="button"
-                    class="remove-experience bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg"
-                        >Remove Experience
-                </button>
-            </div>
-        `;
+                <div class="p-6 border border-gray-200 rounded-lg bg-gray-50">
+                    <div class="mb-4">
+                        <label
+                            for="experience_company_${experienceCount}"
+                            class="block text-sm font-medium text-gray-700">Company</label>
+                        <input
+                            type="text"
+                            name="experiences[${experienceCount}][experience_company]"
+                            id="experience_company_${experienceCount}"
+                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            required
+                            >
+                    </div>
+                    <div class="mb-4">
+                        <label for="experience_position_${experienceCount}"
+                            class="block text-sm font-medium text-gray-700">Position</label>
+                        <input
+                            type="text"
+                            name="experiences[${experienceCount}][experience_position]"
+                            id="experience_position_${experienceCount}"
+                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="experience_business_type_${experienceCount}"
+                            class="block text-sm font-medium text-gray-700">Business Type</label>
+                        <input
+                            type="text"
+                            name="experiences[${experienceCount}][experience_business_type]"
+                            id="experience_business_type_${experienceCount}"
+                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    </div>
+                    <div class="mb-4">
+                        <label for="experience_start_date_${experienceCount}"
+                            class="block text-sm font-medium text-gray-700">Start Date</label>
+                        <input
+                            type="date"
+                            name="experiences[${experienceCount}][experience_start_date]"
+                            id="experience_start_date_${experienceCount}"
+                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="experience_end_date_${experienceCount}"
+                            class="block text-sm font-medium text-gray-700">End Date</label>
+                        <input
+                            type="date"
+                            name="experiences[${experienceCount}][experience_end_date]"
+                            id="experience_end_date_${experienceCount}"
+                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    </div>
+                    <button
+                        type="button"
+                        class="remove-experience bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg hover:bg-red-500"
+                            >Remove Experience
+                    </button>
+                </div>`;
             experiencesSection.appendChild(newExperiencesGroup);
         });
         document.getElementById('experiences-section').addEventListener('click', function(e) {
@@ -91,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <button
                     type="button"
-                    class="remove-education bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg"
+                    class="remove-education bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg hover:bg-red-500"
                         >Remove Education
                 </button>
             </div>
@@ -124,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <button
                     type="button"
-                    class="remove-language bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg"
+                    class="remove-language bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg hover:bg-red-500"
                         >Remove Language
                 </button>
             </div>
@@ -165,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <button
                     type="button"
-                    class="remove-license bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg"
+                    class="remove-license bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg hover:bg-red-500"
                         >Remove License
                 </button>
             </div>
@@ -198,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <button
                     type="button"
-                    class="remove-skill bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg"
+                    class="remove-skill bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg hover:bg-red-500"
                         >Remove Skill
                 </button>
             </div>

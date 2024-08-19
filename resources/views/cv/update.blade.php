@@ -182,7 +182,7 @@
                                             </div>
                                             <button
                                                 type="button"
-                                                class="remove-experience bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg"
+                                                class="remove-experience bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg hover:bg-red-500"
                                             >Remove Experience
                                             </button>
                                         </div>
@@ -251,7 +251,7 @@
                                             </div>
                                             <button
                                                 type="button"
-                                                class="remove-education bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg"
+                                                class="remove-education bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg hover:bg-red-500"
                                             >Remove Education
                                             </button>
                                         </div>
@@ -299,7 +299,7 @@
                                             </div>
                                             <button
                                                 type="button"
-                                                class="remove-language bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg"
+                                                class="remove-language bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg hover:bg-red-500"
                                             >Remove Language
                                             </button>
                                         </div>
@@ -369,7 +369,7 @@
                                             </div>
                                             <button
                                                 type="button"
-                                                class="remove-license bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg"
+                                                class="remove-license bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg hover:bg-red-500"
                                             >Remove License
                                             </button>
                                         </div>
@@ -418,7 +418,7 @@
                                             </div>
                                             <button
                                                 type="button"
-                                                class="remove-skill bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg"
+                                                class="remove-skill bg-red-600 text-white px-3 py-2 border border-red-500 rounded-lg hover:bg-red-500"
                                             >Remove Skill
                                             </button>
                                         </div>
